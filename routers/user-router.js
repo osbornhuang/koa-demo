@@ -5,10 +5,10 @@ const userRouter = new KoaRouter({
 const definedPath = {
   Root: "/",
   GetAll: "/users",
-  GetUser: "/users/:id",
-  CreateUser: "/users",
-  UpateUser: "/users/:id",
-  DeleteUser: "/users/:id"
+  GetUser: "/user/:id",
+  CreateUser: "/user",
+  UpateUser: "/user/:id",
+  DeleteUser: "/user/:id"
 };
 userRouter.get(definedPath.Root, async ctx => {
   ctx.body = "hello koa !";
