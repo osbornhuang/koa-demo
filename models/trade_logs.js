@@ -43,6 +43,11 @@ const TradeLogModel = sequelize.define(
       field: "trade_state",
       type: DataTypes.TINYINT,
       defaultValue: 0
+    },
+    HasNotify: {
+      field: "has_notify",
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
   },
   {

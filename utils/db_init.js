@@ -22,7 +22,7 @@ const defineUserListSchema = async () => {
     const sqltext = `create table if not exists user_list(
       user_id varchar(20) PRIMARY KEY,
       user_name varchar(20) NOT NULL,
-      user_password varchar(32) NOT NULL,
+      user_password varchar(80) NOT NULL,
       user_balance numeric default 0.0
     );`;
     await queryAsync(sqltext);
@@ -68,7 +68,8 @@ const defineTradeLogsSchema = async () => {
       trade_amount numeric,
       trade_fee numeric,
       trade_date timestamp,
-      trade_state int default 0
+      trade_state int default 0,
+      has_notify boolean
     );`;
     await queryAsync(sqltext);
     return Promise.resolve(true);
@@ -79,9 +80,9 @@ const defineTradeLogsSchema = async () => {
 const defineTradeQueuesSchema = async () => {
   try {
     const sqltext = `create table if not exists trade_queues(
-      queque_seq timestamp PRIMARY KEY,
+      queue_seq timestamp PRIMARY KEY,
       trade_seq timestamp NOT NULL,
-      queque_state int default 0,
+      queue_state int default 0,
       trigger_date timestamp,
       finish_date timestamp
     );`;
@@ -91,9 +92,9 @@ const defineTradeQueuesSchema = async () => {
     return queryErrorHandler(err);
   }
 };
-const defineFundNAVLogsSchema = async () => {
+const defineFundNAVHistorySchema = async () => {
   try {
-    const sqltext = `create table if not exists fund_nav_logs(
+    const sqltext = `create table if not exists fund_nav_history(
       log_seq timestamp PRIMARY KEY,
       fund_id varchar(20) PRIMARY KEY,
       fund_nav numeric ,
@@ -113,7 +114,7 @@ const init = async () => {
     await defineFundTypesSchema();
     await defineTradeLogsSchema();
     await defineTradeQueuesSchema();
-    await defineFundNAVLogsSchema();
+    await defineFundNAVHistorySchema();
   } catch (err) {
     return queryErrorHandler(err);
   }

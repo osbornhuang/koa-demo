@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   dotenv: ^16.0.3
+  jsonwebtoken: ^9.0.0
   koa: ^2.14.1
   koa-body: ^6.0.1
   koa-bodyparser: ^4.3.0
@@ -18,6 +19,7 @@ specifiers:
 
 dependencies:
   dotenv: 16.0.3
+  jsonwebtoken: 9.0.0
   koa: 2.14.1
   koa-body: 6.0.1
   koa-bodyparser: 4.3.0
@@ -896,6 +898,16 @@ packages:
       lodash.once: 4.1.1
       ms: 2.1.2
       semver: 5.7.1
+    dev: false
+
+  /jsonwebtoken/9.0.0:
+    resolution: {integrity: sha512-tuGfYXxkQGDPnLJ7SibiQgVgeDgfbPq2k2ICcbgqW8WxWLBAxKQM/ZCu/IT8SOSwmaYl4dpTFCW5xZv7YbbWUw==}
+    engines: {node: '>=12', npm: '>=6'}
+    dependencies:
+      jws: 3.2.2
+      lodash: 4.17.21
+      ms: 2.1.2
+      semver: 7.3.8
     dev: false
 
   /jwa/1.4.1:
