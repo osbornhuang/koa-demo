@@ -3,8 +3,8 @@ import sequelize from "../utils/sequelize_instance";
 const FundTypeModel = sequelize.define(
   "FundType",
   {
-    FundType: {
-      field: "fund_type",
+    TypeId: {
+      field: "type_id",
       type: DataTypes.STRING,
       primaryKey: true
     },

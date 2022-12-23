@@ -4,8 +4,8 @@ const TradeLogModel = sequelize.define(
   "TradeLog",
   {
     TradeSeq: {
-      field: "fund_id",
-      type: "TIMESTAMP",
+      field: "trade_seq",
+      type: DataTypes.DATE,
       defaultValue: literal("CURRENT_TIMESTAMP"),
       primaryKey: true
     },
@@ -34,9 +34,14 @@ const TradeLogModel = sequelize.define(
       type: DataTypes.NUMBER,
       allowNull: false
     },
+    TradeBalance: {
+      field: "trade_balance",
+      type: DataTypes.NUMBER,
+      allowNull: false
+    },
     TradeDate: {
       field: "trade_date",
-      type: "TIMESTAMP",
+      type: DataTypes.DATE,
       defaultValue: literal("CURRENT_TIMESTAMP")
     },
     TradeState: {

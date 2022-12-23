@@ -5,13 +5,18 @@ const TradeQueueModel = sequelize.define(
   {
     QueueSeq: {
       field: "queue_id",
-      type: "TIMESTAMP",
+      type: DataTypes.DATE,
       defaultValue: literal("CURRENT_TIMESTAMP"),
       primaryKey: true
     },
-    UserId: {
+    TradeSeq: {
       field: "trade_seq",
-      type: "TIMESTAMP",
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    UserId: {
+      field: "user_id",
+      type: DataTypes.STRING,
       allowNull: false
     },
     QueueState: {
@@ -22,12 +27,12 @@ const TradeQueueModel = sequelize.define(
     },
     TriggerDate: {
       field: "trigger_date",
-      type: "TIMESTAMP",
+      type: DataTypes.DATE,
       allowNull: false
     },
     FinishDate: {
       field: "finish_date",
-      type: "TIMESTAMP",
+      type: DataTypes.DATE,
       allowNull: true
     }
   },

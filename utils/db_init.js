@@ -23,7 +23,8 @@ const defineUserListSchema = async () => {
       user_id varchar(20) PRIMARY KEY,
       user_name varchar(20) NOT NULL,
       user_password varchar(80) NOT NULL,
-      user_balance numeric default 0.0
+      user_balance numeric default 0.0,
+      user_email varchar(50) NOT NULL
     );`;
     await queryAsync(sqltext);
     return Promise.resolve(true);
@@ -49,7 +50,7 @@ const defineFundListSchema = async () => {
 const defineFundTypesSchema = async () => {
   try {
     const sqltext = `create table if not exists fund_types(
-      fund_type char(1) PRIMARY KEY,
+      type_id char(1) PRIMARY KEY,
       fund_fee numeric
     );`;
     await queryAsync(sqltext);
@@ -67,6 +68,7 @@ const defineTradeLogsSchema = async () => {
       trade_nav numeric,
       trade_amount numeric,
       trade_fee numeric,
+      trade_balance numeric,
       trade_date timestamp,
       trade_state int default 0,
       has_notify boolean
@@ -106,7 +108,7 @@ const defineFundNAVHistorySchema = async () => {
     return queryErrorHandler(err);
   }
 };
-const init = async () => {
+const dbInit = async () => {
   try {
     await installUUidossp();
     await defineUserListSchema();
@@ -119,3 +121,4 @@ const init = async () => {
     return queryErrorHandler(err);
   }
 };
+export default dbInit;

@@ -30,4 +30,4 @@ const verifyUser = async (userId, userPassword) => {
   }
   return Promise.resolve(response);
 };
-export default { verifyUser };
+export { verifyUser };

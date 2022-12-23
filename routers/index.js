@@ -1,8 +1,10 @@
+import jwt from "koa-jwt";
 import KoaRouter from "koa-router";
 import config from "../app.config";
 import { verifyUser } from "../services/authService";
-import bankRouter from "./bank-router";
-import userRouter from "./user-router";
+import bankRouter from "./bank_router";
+import userRouter from "./user_router";
+
 const router = new KoaRouter({
   prefix: "/api/v1"
 });
@@ -11,6 +13,14 @@ const definedPath = {
   SignIn: "/signin",
   SignUp: "/signup"
 };
+const { SECRECT_KEY } = config.JWT_SET;
+router.use(
+  jwt({
+    SECRECT_KEY,
+    cookie: "koa-token",
+    debug: true
+  }).unless({ path: [/^\/signin/, /^\/swagger/] })
+);
 router.get(definedPath.Root, async ctx => {
   ctx.body = "welcome koa bank";
 });
@@ -28,6 +38,6 @@ router.post(definedPath.SignIn, async ctx => {
   }
   ctx.body = { ...res };
 });
-router.use("/user", userRouter.routes(), userRouter.allowedMethods());
-router.use("/bank", bankRouter.routes(), userRouter.allowedMethods());
+router.use("/user-service", userRouter.routes(), userRouter.allowedMethods());
+router.use("/bank-service", bankRouter.routes(), userRouter.allowedMethods());
 export default router;

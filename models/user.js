@@ -22,6 +22,11 @@ const UserModel = sequelize.define(
       field: "user_balance",
       type: DataTypes.NUMBER,
       defaultValue: 0
+    },
+    UserMail: {
+      field: "user_email",
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {

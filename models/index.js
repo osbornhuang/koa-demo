@@ -5,11 +5,4 @@ import TradeLogModel from "./trade_logs";
 import TradeQueueModel from "./trade_queue";
 import UserModel from "./user";
 
-export default {
-  UserModel,
-  FundModel,
-  FundTypeModel,
-  FundNAVHistoryModel,
-  TradeLogModel,
-  TradeQueueModel
-};
+export { UserModel, FundModel, FundTypeModel, FundNAVHistoryModel, TradeLogModel, TradeQueueModel };
