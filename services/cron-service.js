@@ -1,9 +1,10 @@
 import { CronJob } from "cron";
-import config from "../cron.config";
+import { format } from "date-fns";
+import config from "../cron.config.js";
 const processTradeQueues = new CronJob(
   config.DailySchedule,
   function () {
-    console.log("process trande queue");
+    console.log(`[${format(Date.now(), "yyyy-MM-dd HH:mm:ss")}] process trande queue`);
   },
   null,
   true,
@@ -12,7 +13,7 @@ const processTradeQueues = new CronJob(
 const processUpdateFundNAV = new CronJob(
   config.FundNAVUpdateSchedule,
   function () {
-    console.log("process update fund NAV");
+    console.log(`[${format(Date.now(), "yyyy-MM-dd HH:mm:ss")}] process update fund NAV`);
   },
   null,
   true,

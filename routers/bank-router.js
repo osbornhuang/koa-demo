@@ -1,5 +1,5 @@
 import KoaRouter from "koa-router";
-import { BankController } from "../controllers";
+import { BankController } from "../controllers/index.js";
 const bankRouter = new KoaRouter();
 const routePath = {
   Root: "/",

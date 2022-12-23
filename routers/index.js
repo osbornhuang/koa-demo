@@ -1,9 +1,9 @@
 import jwt from "koa-jwt";
 import KoaRouter from "koa-router";
-import config from "../app.config";
-import { verifyUser } from "../services/authService";
-import bankRouter from "./bank_router";
-import userRouter from "./user_router";
+import config from "../app.config.js";
+import { verifyUser } from "../services/auth-service.js";
+import bankRouter from "./bank-router.js";
+import userRouter from "./user-router.js";
 
 const router = new KoaRouter({
   prefix: "/api/v1"

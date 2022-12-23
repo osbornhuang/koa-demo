@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import { UserModel } from "../models";
+import { UserModel } from "../models/index.js";
 const hash = crypto.createHash("sha512");
 const queryUsers = async () => {
   const users = await UserModel.findAll();

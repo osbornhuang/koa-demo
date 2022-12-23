@@ -1,5 +1,5 @@
 import { DataTypes, literal } from "sequelize";
-import sequelize from "../utils/sequelize_instance";
+import sequelize from "../utils/sequelize-instance.js";
 const TradeLogModel = sequelize.define(
   "TradeLog",
   {

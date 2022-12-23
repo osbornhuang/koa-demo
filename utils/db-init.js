@@ -1,10 +1,10 @@
-import { queryAsync } from "./db_instance";
+import { queryAsync, queryErrorHandler } from "./db-instance.js";
 const installUUidossp = async () => {
   try {
     await queryAsync(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
     return Promise.resolve(true);
   } catch (err) {
-    queryErrorHandler(err);
+    return queryErrorHandler(err);
   }
 };
 const createDatabase = async dbName => {
@@ -29,7 +29,7 @@ const defineUserListSchema = async () => {
     await queryAsync(sqltext);
     return Promise.resolve(true);
   } catch (err) {
-    return queryErrorHandler(err);
+    await queryErrorHandler(err);
   }
 };
 const defineFundListSchema = async () => {
@@ -44,7 +44,7 @@ const defineFundListSchema = async () => {
     await queryAsync(sqltext);
     return Promise.resolve(true);
   } catch (err) {
-    return queryErrorHandler(err);
+    await queryErrorHandler(err);
   }
 };
 const defineFundTypesSchema = async () => {
@@ -56,7 +56,7 @@ const defineFundTypesSchema = async () => {
     await queryAsync(sqltext);
     return Promise.resolve(true);
   } catch (err) {
-    return queryErrorHandler(err);
+    await queryErrorHandler(err);
   }
 };
 const defineTradeLogsSchema = async () => {
@@ -76,7 +76,7 @@ const defineTradeLogsSchema = async () => {
     await queryAsync(sqltext);
     return Promise.resolve(true);
   } catch (err) {
-    return queryErrorHandler(err);
+    await queryErrorHandler(err);
   }
 };
 const defineTradeQueuesSchema = async () => {
@@ -91,7 +91,7 @@ const defineTradeQueuesSchema = async () => {
     await queryAsync(sqltext);
     return Promise.resolve(true);
   } catch (err) {
-    return queryErrorHandler(err);
+    await queryErrorHandler(err);
   }
 };
 const defineFundNAVHistorySchema = async () => {
@@ -105,7 +105,7 @@ const defineFundNAVHistorySchema = async () => {
     await queryAsync(sqltext);
     return Promise.resolve(true);
   } catch (err) {
-    return queryErrorHandler(err);
+    await queryErrorHandler(err);
   }
 };
 const dbInit = async () => {
@@ -117,6 +117,7 @@ const dbInit = async () => {
     await defineTradeLogsSchema();
     await defineTradeQueuesSchema();
     await defineFundNAVHistorySchema();
+    return Promise.resolve(true);
   } catch (err) {
     return queryErrorHandler(err);
   }

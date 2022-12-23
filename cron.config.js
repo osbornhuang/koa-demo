@@ -1,5 +1,5 @@
 const config = {
-  DailySchedule: "* */5 * * * *",
-  FundNAVUpdateSchedule: "* */10 * * * *"
+  DailySchedule: "0 0/5 * * * *",
+  FundNAVUpdateSchedule: "0 0/10 * * * *"
 };
 export default config;

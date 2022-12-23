@@ -1,7 +1,7 @@
 import crypto from "crypto";
-import { UserModel } from "../models";
-import { queryUser, queryUsers } from "../services/userService";
-import responseBase from "./response_base";
+import { UserModel } from "../models/index.js";
+import { queryUser, queryUsers } from "../services/user-service.js";
+import responseBase from "./response-base.js";
 const hash = crypto.createHash("sha512");
 const getAllUser = async ctx => {
   const users = await queryUsers();

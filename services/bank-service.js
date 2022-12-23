@@ -1,5 +1,5 @@
 import { add, format, parse, startOfDay } from "date-fns";
-import { FundModel, FundTypeModel, TradeLogModel, TradeQueueModel } from "../models";
+import { FundModel, FundTypeModel, TradeLogModel, TradeQueueModel } from "../models/index.js";
 const getBankCloseTime = () => {
   const date = format(new Date(), "yyyy-MM-dd");
   const formatDesc = "yyyy-MM-dd HH:mm:ss";

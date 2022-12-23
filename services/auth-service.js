@@ -1,6 +1,6 @@
 import crypto from "crypto";
-import { UserModel } from "../models";
-import { createToken } from "../utils/jwt_helper";
+import { UserModel } from "../models/index.js";
+import createToken from "../utils/jwt-helper.js";
 const hash = crypto.createHash("sha512");
 /**
  *

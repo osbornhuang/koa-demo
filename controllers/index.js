@@ -1,3 +1,3 @@
-import * as BankController from "./bank_controller";
-import * as UserController from "./user_controller";
+import * as BankController from "./bank-controller.js";
+import * as UserController from "./user-controller.js";
 export { UserController, BankController };

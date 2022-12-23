@@ -1,5 +1,5 @@
 import KoaRouter from "koa-router";
-import { UserController } from "../controllers";
+import { UserController } from "../controllers/index.js";
 const userRouter = new KoaRouter();
 
 const routePath = {

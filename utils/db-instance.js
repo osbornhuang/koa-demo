@@ -1,6 +1,6 @@
-import { Pool } from "pg";
-import config from "../db.config";
-const pool = new Pool(config);
+import PG from "pg";
+import config from "../db.config.js";
+const pool = new PG.Pool(config);
 pool.on("error", (err, client) => {
   console.error(err);
 });
@@ -13,7 +13,7 @@ const queryAsync = async (sql, params) => {
   }
 };
 const queryErrorHandler = err => {
-  console.error(err.message, err);
-  return Promise.reject(err.meesage);
+  console.error(err);
+  return Promise.reject(err);
 };
-export default { queryAsync, queryErrorHandler };
+export { queryAsync, queryErrorHandler };

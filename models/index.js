@@ -1,8 +1,8 @@
-import FundModel from "./fund";
-import FundNAVHistoryModel from "./fund_nav_history";
-import FundTypeModel from "./fund_types";
-import TradeLogModel from "./trade_logs";
-import TradeQueueModel from "./trade_queue";
-import UserModel from "./user";
+import FundNAVHistoryModel from "./fund-nav-history.js";
+import FundTypeModel from "./fund-types.js";
+import FundModel from "./fund.js";
+import TradeLogModel from "./trade-logs.js";
+import TradeQueueModel from "./trade-queue.js";
+import UserModel from "./user.js";
 
 export { UserModel, FundModel, FundTypeModel, FundNAVHistoryModel, TradeLogModel, TradeQueueModel };

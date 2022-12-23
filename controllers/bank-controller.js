@@ -1,5 +1,5 @@
-import { orderFund, queryFund, queryFunds } from "../services/bankService";
-import responseBase from "./response_base";
+import { orderFund, queryFund, queryFunds } from "../services/bank-service.js";
+import responseBase from "./response-base.js";
 
 const getAllFund = async ctx => {
   const funds = await queryFunds();
